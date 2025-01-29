@@ -21,7 +21,7 @@ Bookswap is a web application that allows users to swap books with other users. 
 1. Clone the repository
 
 ```
-git clone
+git clone git@github.com:Charles4500/bookswap.git
 ```
 
 2. Create a virtual environment
