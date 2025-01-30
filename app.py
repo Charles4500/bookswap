@@ -1,4 +1,5 @@
 #Main application set up
+import os
 from flask import Flask
 from flask_restful import Api
 from flask_migrate import Migrate
@@ -25,7 +26,7 @@ api =Api(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 
 #Should be in the .env file
-app.config['JWT_SECRET_KEY'] = 'bookswap'
+app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY')
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = ACCESS_TOKEN
 
 db.init_app(app)
