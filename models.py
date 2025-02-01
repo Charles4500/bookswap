@@ -196,6 +196,10 @@ class Review(db.Model, SerializerMixin):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     book_id = db.Column(db.Integer, db.ForeignKey('books.id'), nullable=False)
     rating = db.Column(db.Integer, nullable=False)
+    
+    
+    #Serializer rules
+    serialize_only= ('user_id','book_id','rating')
 
     # Defining the relationships
     book = db.relationship('Book', back_populates='reviews')
