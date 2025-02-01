@@ -18,7 +18,7 @@ from models import db
 from resources.users import RegisterResource,LoginResource
 from resources.book import BooksStoreResource
 from resources.wishlist import WishlistResource
-
+from resources.category import CategoryResource
 #Initializing our flask
 app = Flask(__name__)
 
@@ -51,3 +51,4 @@ api.add_resource(RegisterResource,'/register')
 api.add_resource(LoginResource,'/login')
 api.add_resource(BooksStoreResource,'/books','/books/<int:id>')
 api.add_resource(WishlistResource,'/wishlists','/wishlists/<int:id>')
+api.add_resource(CategoryResource,'/categories','/categories/<int:id>')
