@@ -136,6 +136,8 @@ class Wishlist(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     book_id = db.Column(db.Integer, db.ForeignKey('books.id'), nullable=False)
+    
+    serialize_only=('user_id','book_id',)
 
     # Defining the relationship
     user = db.relationship('User', back_populates='wishlist')

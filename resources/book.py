@@ -38,7 +38,7 @@ class BooksStoreResource(Resource):
     def get(self, id=None):
         # The endpoint to perform the get requests
 
-        # If an id is not passed we query all the members
+        # If an id is not passed we query all the books
         if id == None:
             all_books = Book.query.all()
 
