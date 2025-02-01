@@ -160,6 +160,9 @@ class BookList(db.Model, SerializerMixin):
     listing_type = db.Column(db.String(20), nullable=False)
     status = db.Column(db.String, default='available')
 
+    #Serializer
+    serialize_only = ('user_id','book_id','price','rental_fee','listing_type','status')
+    
     # Relationships
     user = db.relationship('User', back_populates='book_listed')
     book = db.relationship('Book', back_populates='listings')
