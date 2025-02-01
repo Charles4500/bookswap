@@ -39,6 +39,7 @@ class User(db.Model, SerializerMixin):
     password = db.Column(db.String(255), nullable=False)
     role = db.Column(db.String(50), nullable=False, )
 
+    serializer_rules = ('-password',)
     # Defining relationships
     book_listed = db.relationship(
         'BookList', back_populates='user', cascade='all , delete-orphan')
@@ -112,6 +113,9 @@ class Book(db.Model, SerializerMixin):
     number_in_stock = db.Column(db.Integer, nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey(
         'categories.id'), nullable=True)
+    
+    #Adding serializer rules to avoid recursion depth
+    serialize_only =('title','author','description','image','available','number_in_stock','category_id')
 
     # Defining relationships
     listings = db.relationship(

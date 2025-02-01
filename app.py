@@ -16,7 +16,7 @@ from models import db
 
 #Importing our endpoints
 from resources.users import RegisterResource,LoginResource
-from resources.book import AddBookResource
+from resources.book import BooksStoreResource
 
 #Initializing our flask
 app = Flask(__name__)
@@ -48,4 +48,4 @@ def home():
   
 api.add_resource(RegisterResource,'/register')
 api.add_resource(LoginResource,'/login')
-api.add_resource(AddBookResource,'/addbook')
+api.add_resource(BooksStoreResource,'/books','/books/<int:id>')
